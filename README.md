@@ -2,15 +2,16 @@
 Takes a .txt file of NDJ (New-line Delimited JSON) which it then parses and inserts into a Mongo database using NodeJs streams.
 
 To Use:
-Git clone
 
-cd JSON-toMongoDB
+1. Git clone
 
-Start mongo
+2. cd JSON-toMongoDB
 
-node import-json.js  --file  <file here> -- <mongo collection>
+3. Start mongo
+ 
+4. node import-json.js  --file  <file here> -- <mongo collection>
 
-SAMPLE OUTPUT:
+# SAMPLE OUTPUT:
 
 lines read: 864033
 
