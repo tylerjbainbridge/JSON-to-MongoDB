@@ -1,0 +1,21 @@
+{
+  "name": "importjson",
+  "version": "1.0.0",
+  "description": "An application which imports JSON strings as mongoDB documents.",
+  "main": "import-json.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tyler Bainbridge",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.0.0-rc.3",
+    "commander": "^2.9.0",
+    "fs": "0.0.2",
+    "lodash": "^4.11.1",
+    "minimist": "^1.2.0",
+    "mongodb": "^2.1.16",
+    "q": "^1.4.1",
+    "split": "^1.0.0"
+  }
+}
