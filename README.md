@@ -11,6 +11,11 @@ To Use:
  
 4. node import-json.js  --file  <file here> -- <mongo collection>
 
+e.g.
+
+node import-json.js  --file  newTest.txt -- myCollection
+
+
 # SAMPLE OUTPUT:
 
 lines read: 864033
