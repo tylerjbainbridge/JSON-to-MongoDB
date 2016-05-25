@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 app.post('/importJSON', (req, res) => {
     /**
      * Temporarily upload the file and read from it using functions in import-json.
-     * Use schemas from mongoose
+     * Use schemas from mongoose.
      */
 });
 
