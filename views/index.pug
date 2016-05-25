@@ -4,8 +4,12 @@ html
     body
         h1= message
 
-        form(role='form', action="/importJSON",method="post", id='register',style='max-width: 300px;')
-            input.form-control(type='text', name="collection", placeholder='Enter Collection.')
+        form(role='form', action="/importJSON", method="post", id='importJSON', enctype="multipart/form-data", style='max-width: 300px;')
+            input(type='text', name="collection", placeholder='Enter Collection')
             br
-            input.form-control(type='file', name="file", placeholder='Choose file.')
+            //input(type='text', name="file", placeholder='Enter File Name')
+            br
+            input(type='file', name="file", placeholder='Choose file.')
+            br
+            button(type="submit") Submit
     //add a form here taking a mongo collection and a file (or enter text)

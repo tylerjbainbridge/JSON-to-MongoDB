@@ -29,6 +29,7 @@ var fs = require('fs'),
     parsedArgs = require('minimist')(process.argv.slice(2)),
     split = require('split');
 
+    
 
 /**
  * MAIN FUNCTION
@@ -39,11 +40,11 @@ var fs = require('fs'),
  * 5.
  */
 
-exports.readFileIntoMongo = function() {
+exports.readFileIntoMongo = function(collection, file) {
     console.time("time");
-
+    console.log("hello");
     var objects = [];
-    var file = parsedArgs.file;
+    //var file = parsedArgs.file;
     var exitInformation = {
         totalLines: 0,
         linesImported: 0,
@@ -65,9 +66,18 @@ exports.readFileIntoMongo = function() {
 
         })
         .on('close', function () {              //when the files is closed, insert the array of javascript objects in a bulk insert.
-            insertDocs(objects, exitInformation, endTime);
+            insertDocs(objects, collection, exitInformation, endTime);
         });
 };
+
+if(typeof file != 'undefined' || typeof collectionName != 'undefined'){
+    var file = parsedArgs.file;
+    var collectionName = parsedArgs._[0];
+    console.log(file, collectionName);
+    exports.readFileIntoMongo(collectionName, file);
+}
+
+
 
 /**
  * This function takes an array of objects to bulk insert into the DB.
@@ -75,10 +85,10 @@ exports.readFileIntoMongo = function() {
  * @param exitInformation is the object containing information necessary for the callback.
  * @param callback call back is "endTime" which calls "printResults" as well as the total elapsed time.
  */
-function insertDocs(objectArray, exitInformation, callback) {
+function insertDocs(objectArray, collectionName, exitInformation, callback) {
 
     var mongoClient = mongodb.MongoClient;                           // MongoDB client.
-    var collectionName = parsedArgs._[0];                            // Collection from command line arguements.
+    //var collectionName = parsedArgs._[0];                            // Collection from command line arguements.
     var mongoURL = "mongodb://localhost:27017/" + collectionName;    // Mongo URL created using the collection supplied by the user.
 
     mongoClient.connect(mongoURL, function (err, db) {
