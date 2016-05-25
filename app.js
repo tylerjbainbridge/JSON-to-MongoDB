@@ -4,10 +4,19 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var importJSON = require('./import-json');
+
+
+var routes = require('./routes/index');
+
 var mongoose = require('mongoose');
 var multer  = require('multer');
-var upload = multer({ dest: 'uploads/' });
+
+var upload = multer({
+    dest: 'uploads/',
+    inMemory: true
+});
+
+var fs = require('fs');
 
 mongoose.connect('mongodb://localhost:27017/');
 
@@ -20,26 +29,15 @@ app.listen(3000, () => {
 });
 
 
+
 //For parsing the form content.
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 
 //when it receives the root, then render the index.
-app.get('/', (req, res) => {
-    res.render('index', {
-        title: 'Rakuten Practice', message: 'Import JSON to MongoDB with Express'
-    });
-});
+app.get('/', routes.getIndex);
 
-app.post('/importJSON', upload.single('file'),(req, res) => {
-
-    var collectionName = req.body.collection;
-    var fileName = req.file.path;
-
-    importJSON.readFileIntoMongo(collectionName, fileName);
-    res.send(200);
-
-});
+app.post('/importJSON', upload.single('file'), routes.importJSON);
 
 module.exports = app;

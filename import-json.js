@@ -70,9 +70,10 @@ exports.readFileIntoMongo = function(collection, file) {
         });
 };
 
+var file = parsedArgs.file;
+var collectionName = parsedArgs._[0];
+
 if(typeof file != 'undefined' || typeof collectionName != 'undefined'){
-    var file = parsedArgs.file;
-    var collectionName = parsedArgs._[0];
     console.log(file, collectionName);
     exports.readFileIntoMongo(collectionName, file);
 }
@@ -156,7 +157,8 @@ function printResults(exitInformation) {
  */
 function endTime(exitInformation) {
     printResults(exitInformation);
-    console.timeEnd("time");
+    var time = console.timeEnd("time");
+    console.log("end time: ", time);
 }
 
 

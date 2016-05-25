@@ -1,11 +1,12 @@
 {
-  "name": "importjson",
+  "name": "JSON-to-MongoDB",
   "version": "1.0.0",
   "description": "An application which imports JSON strings as mongoDB documents.",
-  "main": "import-json.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
   },
+  "npm start": "node app",
   "author": "Tyler Bainbridge",
   "license": "ISC",
   "dependencies": {
