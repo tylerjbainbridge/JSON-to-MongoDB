@@ -10,11 +10,15 @@
   "license": "ISC",
   "dependencies": {
     "async": "^2.0.0-rc.3",
+    "body-parser": "^1.15.1",
     "commander": "^2.9.0",
+    "express": "^4.13.4",
     "fs": "0.0.2",
     "lodash": "^4.11.1",
     "minimist": "^1.2.0",
     "mongodb": "^2.1.16",
+    "mongoose": "^4.4.19",
+    "pug": "^2.0.0-alpha8",
     "q": "^1.4.1",
     "split": "^1.0.0"
   }

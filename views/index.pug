@@ -1,0 +1,11 @@
+html
+    head
+        title= title
+    body
+        h1= message
+
+        form(role='form', action="/importJSON",method="post", id='register',style='max-width: 300px;')
+            input.form-control(type='text', name="collection", placeholder='Enter Collection.')
+            br
+            input.form-control(type='file', name="file", placeholder='Choose file.')
+    //add a form here taking a mongo collection and a file (or enter text)
